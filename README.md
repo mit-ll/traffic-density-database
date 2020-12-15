@@ -191,9 +191,14 @@ Suggested improvements to the tool include:
 * Extrapolating observed data to locations without radar coverage.
 
 ## <a name="citation"></a> Citation
-A DOI number should be created upon public release of this repository.
 
-<!-- Please use this DOI number reference when citing the software: -->
+Please use this DOI number reference when citing the software:
+
+[![DOI](https://zenodo.org/badge/320663889.svg)](https://zenodo.org/badge/latestdoi/320663889)
+
+Please use this DOI number reference when citing the data:
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4317967.svg)](https://doi.org/10.5281/zenodo.4317967)
 
 ## <a name="diststatement"></a> Distribution Statement
 DISTRIBUTION STATEMENT A. Approved for public release. Distribution is unlimited.
