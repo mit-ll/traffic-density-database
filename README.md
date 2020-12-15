@@ -91,7 +91,7 @@ The software utilizes Matlab's built-in documentation for custom classes, that c
 _**Note:** Due to the large amount of data in the traffic density database, the user must have at least 18 GB of RAM on their machine in order to run the traffic density tool._
 
 ## <a name="initsetup"></a> Initial Environment Setup
-The Data directory must be populated with the input data files described in the [Data directory README](./Data/README.md). The data files are provided separately (with link included here for the public release).
+After cloning this repository, the Data directory must be populated with the input data files described in the [Data directory README](./Data/README.md). The data files are provided separately on [Zenodo](https://zenodo.org/record/4317967#.X9Qd4dhKguU).
 
 After the Data directory is populated, and any time that Matlab is restarted, the startup script in the top-level directory should be executed, which will check compatibility and setup the environment, including adding subdirectories to the path. It will also add the TrafficDensityDatabase path as an environment variable (TrafficDensityPath), which is used to access and save certain files.
 
