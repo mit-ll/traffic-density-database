@@ -6,6 +6,7 @@ The traffic density data is extracted from raw air traffic and air defense radar
 Although it is expected that collision rates are of primary interest, other event rates can be estimated given [user specified input parameters](#options). An event is when another aircraft comes within the user specified volume, and the event rate is the estimated average number of events per flight hour. For example, the event rate of near mid-air collisions (NMACs) typically defined as a loss of separation 500 ft horizontally and 100 ft vertically, may also be of interest.
 
 ## Contents
+* [Point of Contact](#poc)
 * [Application and Scope](#appscope)
 * [Software Compatibility and Architecture](#softwarearch)
 * [Initial Environment Setup](#initsetup)
@@ -16,6 +17,10 @@ Although it is expected that collision rates are of primary interest, other even
 * [Future Improvements](#improvements)
 * [Citation](#citation)
 * [Distribution Statement](#diststatement)
+
+## <a name="poc"></a> Point of Contact
+
+We encourage the use of the [GitHub Issues](https://guides.github.com/features/issues/) but when email is required, please contact the administrators at [encounter-model-ml-admin@mit.edu](mailto:encounter-model-ml-admin@mit.edu). As the encounter models transition to a more community driven effort, a separate mailing list for code discussion may be created.
 
 ## <a name="appscope"></a> Application and Scope
 This section describes key considerations when using this software, including limitations and assumptions. The following [sections](#softwarearch) describe how to setup and use the software.
