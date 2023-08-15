@@ -1,4 +1,4 @@
-% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% Copyright 2019 - 2023, MIT Lincoln Laboratory
 % SPDX-License-Identifier: X11
 %
 % Script will add necessary paths
@@ -19,8 +19,9 @@ addpath(genpath('Testing'));
 
 setenv('TrafficDensityPath',pwd);
 
-% Try to build necessary files if they do not exist
-if ~exist('accumarraymax_mex','file')
+% Try to build necessary files if they do not exist. Note: R2020b and newer
+% improved performance of built-in so compliation no longer required
+if ~exist('accumarraymax_mex','file') && verLessThan('matlab','9.9') 
     disp('Building accumarraymax_mex...')
     cd('Utilities');
     buildaccumarray;

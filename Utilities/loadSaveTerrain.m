@@ -1,5 +1,5 @@
 function loadSaveTerrain(datafolder,jobfile)
-% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% Copyright 2019 - 2023, MIT Lincoln Laboratory
 % SPDX-License-Identifier: X11
 %
 % Purpose: to load and save terrain information (NOAA GLOBE)

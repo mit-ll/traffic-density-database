@@ -1,12 +1,11 @@
 # Traffic Density Database Overview
 This software is intended to process observed aircraft traffic information into unmitigated collision rates given user specified geographic regions or aircraft tracks. The user may also specify the time of day, month of year, and day of week to be evaluated. Unmitigated collision rates are useful for aircraft safety assessments, and may be combined with the efficacy of mitigations&mdash;e.g., air traffic control, detect and avoid, see and avoid&mdash;in order to estimate the total operation safety.
 
-The traffic density data is extracted from raw air traffic and air defense radar data provided by the Air Force 84th Radar Evaluation Squadron. Over 300 long-range and short-range radars were used to generate the traffic data; the radar data is tracked and fused to ensure that traffic data is not duplicated (see Appendix F of [this document](https://www.ll.mit.edu/sites/default/files/publication/doc/2018-12/Kochenderfer_2008_ATC-344_WW-18099.pdf) for additional detail regarding this process). The fused data is then aggregated by temporally and spatially discretizing the traffic data. For each temporal and spatial cell, the total aircraft flight time and maximum instantaneous occupancy are captured; this software then estimates the traffic density and then the collision risk. The data files are provided separately on [Zenodo](https://zenodo.org/record/4317967#.X9Qd4dhKguU).
+The traffic density data is extracted from raw air traffic and air defense radar data provided by the Air Force 84th Radar Evaluation Squadron. Over 300 long-range and short-range radars were used to generate the traffic data; the radar data is tracked and fused to ensure that traffic data is not duplicated (see Appendix F of [this document](https://www.ll.mit.edu/sites/default/files/publication/doc/2018-12/Kochenderfer_2008_ATC-344_WW-18099.pdf) for additional detail regarding this process). The fused data is then aggregated by temporally and spatially discretizing the traffic data. For each temporal and spatial cell, the total aircraft flight time and maximum instantaneous occupancy are captured; this software then estimates the traffic density and then the collision risk.
 
 Although it is expected that collision rates are of primary interest, other event rates can be estimated given [user specified input parameters](#options). An event is when another aircraft comes within the user specified volume, and the event rate is the estimated average number of events per flight hour. For example, the event rate of near mid-air collisions (NMACs) typically defined as a loss of separation 500 ft horizontally and 100 ft vertically, may also be of interest.
 
 ## Contents
-* [Point of Contact](#poc)
 * [Application and Scope](#appscope)
 * [Software Compatibility and Architecture](#softwarearch)
 * [Initial Environment Setup](#initsetup)
@@ -17,10 +16,6 @@ Although it is expected that collision rates are of primary interest, other even
 * [Future Improvements](#improvements)
 * [Citation](#citation)
 * [Distribution Statement](#diststatement)
-
-## <a name="poc"></a> Point of Contact
-
-We encourage the use of the [GitHub Issues](https://guides.github.com/features/issues/) but when email is required, please contact the administrators at [encounter-model-ml-admin@mit.edu](mailto:encounter-model-ml-admin@mit.edu). As the encounter models transition to a more community driven effort, a separate mailing list for code discussion may be created.
 
 ## <a name="appscope"></a> Application and Scope
 This section describes key considerations when using this software, including limitations and assumptions. The following [sections](#softwarearch) describe how to setup and use the software.
@@ -96,7 +91,7 @@ The software utilizes Matlab's built-in documentation for custom classes, that c
 _**Note:** Due to the large amount of data in the traffic density database, the user must have at least 18 GB of RAM on their machine in order to run the traffic density tool._
 
 ## <a name="initsetup"></a> Initial Environment Setup
-After cloning this repository, the Data directory must be populated with the input data files described in the [Data directory README](./Data/README.md). The data files are provided separately on [Zenodo](https://zenodo.org/record/4317967#.X9Qd4dhKguU).
+The Data directory must be populated with the input data files described in the [Data directory README](./Data/README.md). The data files are provided separately (with link included here for the public release).
 
 After the Data directory is populated, and any time that Matlab is restarted, the startup script in the top-level directory should be executed, which will check compatibility and setup the environment, including adding subdirectories to the path. It will also add the TrafficDensityDatabase path as an environment variable (TrafficDensityPath), which is used to access and save certain files.
 
@@ -196,20 +191,15 @@ Suggested improvements to the tool include:
 * Extrapolating observed data to locations without radar coverage.
 
 ## <a name="citation"></a> Citation
+A DOI number should be created upon public release of this repository.
 
-Please use this DOI number reference when citing the software:
-
-[![DOI](https://zenodo.org/badge/320663889.svg)](https://zenodo.org/badge/latestdoi/320663889)
-
-Please use this DOI number reference when citing the data:
-
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4317967.svg)](https://doi.org/10.5281/zenodo.4317967)
+<!-- Please use this DOI number reference when citing the software: -->
 
 ## <a name="diststatement"></a> Distribution Statement
 DISTRIBUTION STATEMENT A. Approved for public release. Distribution is unlimited.
 
 This material is based upon work supported by the National Aeronautics and Space Administration under Air Force Contract No. FA8702-15-D-0001. Any opinions, findings, conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Aeronautics and Space Administration.
 
-© 2019-2020 Massachusetts Institute of Technology.
+© 2019-2023 Massachusetts Institute of Technology.
 
 Delivered to the U.S. Government with Unlimited Rights, as defined in DFARS Part 252.227-7013 or 7014 (Feb 2014). Notwithstanding any copyright notice, U.S. Government rights in this work are defined by DFARS 252.227-7013 or DFARS 252.227-7014 as detailed above. Use of this work other than as specifically authorized by the U.S. Government may violate any copyrights that exist in this work.

@@ -1,5 +1,5 @@
 function obj = loadEncModel(obj)
-% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% Copyright 2019 - 2023, MIT Lincoln Laboratory
 % SPDX-License-Identifier: X11
 %
 % Get encounter model speed information by altitude (for computing the event rate)

@@ -1,5 +1,5 @@
 function [outdata,summarize] = plot(obj,varargin)
-% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% Copyright 2019 - 2023, MIT Lincoln Laboratory
 % SPDX-License-Identifier: X11
 %
 % PLOT method will display results of traffic density processing on a map

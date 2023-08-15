@@ -1,4 +1,4 @@
-% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% Copyright 2019 - 2023, MIT Lincoln Laboratory
 % SPDX-License-Identifier: X11
 %
 % Purpose: get airport information and save for use by Traffic Density tool

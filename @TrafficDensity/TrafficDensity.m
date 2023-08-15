@@ -1,5 +1,5 @@
 classdef TrafficDensity
-% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% Copyright 2019 - 2023, MIT Lincoln Laboratory
 % SPDX-License-Identifier: X11
 %
 % TRAFFICDENSITY class: load and compute aircraft traffic density

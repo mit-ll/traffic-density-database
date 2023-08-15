@@ -1,5 +1,5 @@
 function generateTestData
-% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% Copyright 2019 - 2023, MIT Lincoln Laboratory
 % SPDX-License-Identifier: X11
 %
 %The purpose of this function is to generate unit test data for the

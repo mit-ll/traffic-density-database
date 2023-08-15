@@ -1,5 +1,5 @@
 function obj = getValidInds(obj)
-% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% Copyright 2019 - 2023, MIT Lincoln Laboratory
 % SPDX-License-Identifier: X11
 %
 % Get valid indices for processing density data, based on input limitations

@@ -1,4 +1,4 @@
-% Copyright 2008 - 2020, MIT Lincoln Laboratory
+% Copyright 2008 - 2023, MIT Lincoln Laboratory
 % SPDX-License-Identifier: BSD-2-Clause
 %
 %The purpose of this script is to generate simple test data that can be

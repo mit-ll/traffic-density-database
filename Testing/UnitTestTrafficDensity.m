@@ -1,6 +1,6 @@
 %% Test Class Definition
 classdef UnitTestTrafficDensity < matlab.unittest.TestCase
-% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% Copyright 2019 - 2023, MIT Lincoln Laboratory
 % SPDX-License-Identifier: X11
 %
 % UnitTestTrafficDensity takes in simple (fabricated) data and outputs

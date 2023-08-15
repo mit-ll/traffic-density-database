@@ -1,5 +1,5 @@
 function obj = LoadData(obj)
-% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% Copyright 2019 - 2023, MIT Lincoln Laboratory
 % SPDX-License-Identifier: X11
 %
 % Load density, coverage, airspace, and terrain data
@@ -70,8 +70,8 @@ obj = obj.loadEncModel;
 
 %% Load airport information
 tmp = load(obj.filenames.airport);
-if any(size(tmp.APT)~=[2643, 5]) % Check data has expected size
-    warning('Size of airport data is different than expected (Expected: 2643x5)');
+if any(size(tmp.APT)~=[2645, 5]) % Check data has expected size
+    warning('Size of airport data is different than expected (Expected: 2645x5)');
 end
 obj.airport = tmp.APT;
 

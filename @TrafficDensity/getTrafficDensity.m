@@ -1,5 +1,5 @@
 function obj = getTrafficDensity(obj)
-% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% Copyright 2019 - 2023, MIT Lincoln Laboratory
 % SPDX-License-Identifier: X11
 %
 % Estimate the traffic density given indices (identified through user input)
@@ -77,18 +77,23 @@ for ac = 1:length(ACcategory)
     sumdensity = accumarray(accuminds,TotalTime,[ncells,1],@sum); % Observed aircraft seconds
     avgdensity = sumdensity/obj.obshrs/obj.hr2s; % Average number of aircraft in each cell    
     if obj.computemax % Run the mex file for computing the maximum density, which is considerably faster than Matlab built-in (see buildaccumarray.m under Utilities)
-        maxdensity = double(accumarraymax_mex(accuminds,uint32(TotalTime),ncells))/24*obj.jobdata.GRID_T_NUM/obj.hr2s;
-        maxocc = double(accumarraymax_mex(accuminds,uint32(MaxOcc(indsac)),ncells));
-    
+        
+        % If using version before R2020b and have compiled
+        % accumarraymax_mex (from Startup, in Utilities folder)
+        if exist('accumarraymax_mex','file') && verLessThan('matlab','9.9') 
+            maxdensity = double(accumarraymax_mex(accuminds,uint32(TotalTime),ncells))/24*obj.jobdata.GRID_T_NUM/obj.hr2s;
+            maxocc = double(accumarraymax_mex(accuminds,uint32(MaxOcc(indsac)),ncells));
+        else % Use built-in (significant run-time improvements in R2020b)
+            if ~exist('accumarraymax_mex','file') && verLessThan('matlab','9.9') 
+                warning('Unable to run mex (compiled) function accumarraymax_mex; reverting to much slower Matlab built-in (Matlab earlier than R2020b)');
+            end
+            maxdensity = double(accumarray(accuminds,TotalTime,[ncells,1],@max))/24*obj.jobdata.GRID_T_NUM/obj.hr2s; % Maximum density per hour
+            maxocc = double(accumarray(accuminds,double(MaxOcc(indsac)),[ncells,1],@max)); % Maximum occupancy
+        end 
+
         % Reformat densities into matrices
         obj.count(currACcat).cmax = reshape(maxdensity,obj.(jobdatastr).GRID_Y_NUM,obj.(jobdatastr).GRID_X_NUM,obj.jobdata.GRID_H_NUM);
-        obj.count(currACcat).cmaxocc = reshape(maxocc,obj.(jobdatastr).GRID_Y_NUM,obj.(jobdatastr).GRID_X_NUM,obj.jobdata.GRID_H_NUM);  
-        
-        % Following code is deprecated but included as example of how to
-        % use Matlab built-in accumarray.m:
-        % warning('Unable to run mex (compiled) function accumarraymax_mex; reverting to much slower Matlab built-in');
-        % maxdensity = double(accumarray(accuminds,TotalTime,[ncells,1],@max))/24*obj.jobdata.GRID_T_NUM/obj.hr2s; % Maximum density per hour
-        % maxocc = double(accumarray(accuminds,double(MaxOcc(indsac)),[ncells,1],@max)); % Maximum occupancy
+        obj.count(currACcat).cmaxocc = reshape(maxocc,obj.(jobdatastr).GRID_Y_NUM,obj.(jobdatastr).GRID_X_NUM,obj.jobdata.GRID_H_NUM); 
     else
         if isfield(obj.count,'cmax')
             obj.count = rmfield(obj.count,'cmax');
